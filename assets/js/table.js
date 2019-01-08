@@ -1,7 +1,5 @@
 $(document).ready(function(){
     $('#table_data').DataTable( {
-        "processing": true,
-        "serverSide": true,
         "ajax":  'http://localhost/ss_training_1/datatable'
     });
     $('#table_data').on('click','#view',function(e){
