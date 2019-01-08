@@ -11,6 +11,14 @@
         
         <script src="{!!asset('assets/js/jquery-2.2.4.min.js')!!}"></script>
         <script src="{!!asset('assets/js/bootstrap.min.js')!!}"></script>
+
+        <!-- Main APP Js -->
+        <script src="{!!asset('assets/js/app.js')!!}"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+        <script src="{!!asset('assets/js/datatables.min.js')!!}"></script>
+        <script src="{!!asset('assets/js/bootbox.min.js')!!}"></script>
+
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
@@ -19,57 +27,6 @@
 
         <link rel="stylesheet" href="{!!asset('assets/css/validationEngine.jquery.css')!!}" type="text/css"/>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{!!asset('assets/css/app.css')!!}" type="text/css"/>
     </head>

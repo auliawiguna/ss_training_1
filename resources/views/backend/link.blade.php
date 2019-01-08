@@ -16,24 +16,3 @@
     <hr>
     <div class="col-md-12" id="result_url">Insert URL first !</div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('#create_link').validationEngine();
-        $('#create_link').on('submit',function(e){
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            if($(this).validationEngine('validate')){
-                $('#result_url').html('Loading...');
-                $.ajax({
-                    data : $(this).serialize() ,
-                    method: 'GET',
-                    url : $(this).attr('action'),
-                    success: function(data) {
-                        $('#result_url').html(data);
-                    },
-                });            
-            }
-        });
-    })
-    </script>

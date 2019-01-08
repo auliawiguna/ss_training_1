@@ -20,7 +20,7 @@ class Links extends Migration
             $table->string('link');
             $table->timestamp('created');
             $table->datetime('expired');
-            $table->datetime('deleted');
+            $table->integer('deleted');
         });        
         //
     }
