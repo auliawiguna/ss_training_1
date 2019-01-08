@@ -22,7 +22,7 @@ class LoginController extends Controller{
             'email'    => 'required|email', 
             'password' => 'required|min:6'
         );
-        $validator = \Validator::make($request->input(), $rules);
+        $validator = validator($request->input(), $rules);
 
         if ($validator->fails()) {
             return \Redirect::to('')
