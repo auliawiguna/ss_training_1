@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\Links;
-use App\Models\LinkStats;
+use App\Models\Link;
+use App\Models\LinkStat;
 
 class DashboardController extends Controller
 {
@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function view($id='')
     {
-        $data = LinkStats::where('link_id',$id)
+        $data = LinkStat::where('link_id',$id)
         ->with('links')
         ->get();
         return view('backend/view',compact('data'));
@@ -27,7 +27,7 @@ class DashboardController extends Controller
         $data['data'] = '';
         switch ($page) {
             case 'history':
-                $data['data'] = Links::where('user_id',\Session::get('id'))->get();
+                $data['data'] = Link::where('user_id',\Session::get('id'))->get();
                 break;            
             default:
                 # code...
@@ -38,13 +38,13 @@ class DashboardController extends Controller
 
     public function goTo($url='', Request $request)
     {
-        $data = Links::where('code',$url)
+        $data = Link::where('code',$url)
         //check if URL time valid
         ->where('created','<=',Carbon::now())
         ->where('expired','>=',Carbon::now())
         ->first();
         if ($data) {
-            LinkStats::create([
+            LinkStat::create([
                 'link_id' => $data->id,
                 'ip' => $request->ip(),
                 'browser' => $_SERVER['HTTP_USER_AGENT'],
@@ -55,7 +55,7 @@ class DashboardController extends Controller
     
     public function dataTable()
     {
-        $data = Links::where('user_id',\Session::get('id'))->get();
+        $data = Link::where('user_id',\Session::get('id'))->get();
 
         $json = [
             'draw' => 1,
@@ -67,15 +67,15 @@ class DashboardController extends Controller
         foreach ($data as $no => $d) {
             $arr[] = [
                 $no + 1,
-                $d->code,
+                '<a href="'.url('i/'.$d->code).'" target="_blank">'.$d->code.'</a>',
                 $d->link,
-                $d->created,
+                $d->created->format('d M Y H:i:s'),
                 $d->expired,
                 '<a href="" id="view" data-id="'.$d->id.'">View</a>',
             ];
         }
         $json['data'] = $arr;
-        echo json_encode($json);
+        return response()->json($json);
     }
 
     public function createLink(\Request $request)
@@ -87,14 +87,15 @@ class DashboardController extends Controller
             'code' => $rand,
             'link' => $data['url'],
             'user_id' => \Session::get('id'),
+            'created' => Carbon::now(),
             'expired' => $now->addHours(24),
             'deleted' => '0' 
         ];
-        $save= Links::create($arr);
+        $save= Link::create($arr);
         if ($save) {
-            echo 'Link : '.url('i/'.$rand);
+            return 'Link : '.url('i/'.$rand);
         } else {
-            echo 'Failed Generate Url';
+            return 'Failed Generate Url';
         }
     }    
 

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Links extends Model
+class Link extends Model
 {
     //
     const CREATED_AT = 'created';

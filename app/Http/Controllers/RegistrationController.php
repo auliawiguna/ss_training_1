@@ -34,10 +34,10 @@ class RegistrationController extends Controller{
                 if ($create) {
                     return view('register/success');
                 } else {
-                    echo 'Registration Failed';                    
+                    return 'Registration Failed';                    
                 }
             } else {
-                echo 'Invalid Validation';
+                return 'Invalid Validation';
             }
         }
     }    

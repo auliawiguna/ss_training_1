@@ -1,4 +1,4 @@
-
+<script src="{!!asset('assets/js/app.js')!!}"></script>
 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     
 </div>

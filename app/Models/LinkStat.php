@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LinkStats extends Model
+class LinkStat extends Model
 {
     //
     const CREATED_AT = 'time';
@@ -14,7 +14,7 @@ class LinkStats extends Model
 
 	public function links()
     {
-        return $this->belongsTo('\App\Models\Links', 'link_id');
+        return $this->belongsTo('\App\Models\Link', 'link_id');
     }
 
 }

@@ -119,10 +119,10 @@
 							<div class="col-lg-12">
                                 {!! \Form::open(['url' => '/login']) !!}
 									<div class="form-group">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+										<input type="text" name="email" required id="email" tabindex="1" class="form-control" placeholder="Email" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" required name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">

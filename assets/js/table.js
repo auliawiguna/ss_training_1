@@ -4,7 +4,7 @@ $(document).ready(function(){
         "serverSide": true,
         "ajax":  'http://localhost/ss_training_1/datatable'
     });
-    $('#table_data').on('click','a',function(e){
+    $('#table_data').on('click','#view',function(e){
         e.preventDefault();
         e.stopImmediatePropagation();
         $.ajax({
