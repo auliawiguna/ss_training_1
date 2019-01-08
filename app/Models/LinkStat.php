@@ -14,7 +14,7 @@ class LinkStat extends Model
 
 	public function links()
     {
-        return $this->belongsTo('\App\Models\Link', 'link_id');
+        return $this->belongsTo('\App\Models\Link','link_id');
     }
 
 }

@@ -40,6 +40,5 @@ class RegistrationController extends Controller{
                 return 'Invalid Validation';
             }
         }
-    }    
-    
+    }       
 }

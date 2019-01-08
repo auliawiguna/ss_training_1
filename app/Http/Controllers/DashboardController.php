@@ -98,5 +98,4 @@ class DashboardController extends Controller
             return 'Failed Generate Url';
         }
     }    
-
 }
