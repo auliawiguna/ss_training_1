@@ -32,4 +32,12 @@ $(document).ready(function(){
         }
     });
 
+    $('#registration_form').validationEngine();
+    $('#registration_form').on('submit',function(){
+        if($(this).validationEngine('validate')){
+    
+        }else{
+            return false;
+        }
+    });    
 });

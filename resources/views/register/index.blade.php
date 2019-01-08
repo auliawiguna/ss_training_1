@@ -31,16 +31,3 @@
 </div> <!-- card.// -->
 </body>
 </html>
-
-
-<script>
-$('#registration_form').validationEngine();
-$('#registration_form').on('submit',function(){
-    if($(this).validationEngine('validate')){
-
-    }else{
-        return false;
-    }
-});
-
-</script>
